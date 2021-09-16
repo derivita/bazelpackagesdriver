@@ -85,7 +85,7 @@ func (d *bazelDriver) loadPackages(patterns ...string) (*driver.Response, error)
 	log.Printf("mode: %v", d.cfg.Mode)
 	unsupportedModes := d.cfg.Mode &^ supportedModes
 	if unsupportedModes != 0 {
-		return nil, fmt.Errorf("%v (%b) not implemented", unsupportedModes, unsupportedModes)
+		log.Printf("%v (%b) not implemented", unsupportedModes, unsupportedModes)
 	}
 
 	if len(patterns) == 0 {
